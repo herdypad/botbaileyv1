@@ -1,9 +1,11 @@
 const axios = require('axios')
 const fetch = require('node-fetch')
+const cheerio = require('cheerio')
 const fs = require('fs')
 const mime = require('mime-types')
 const chalk = require('chalk')
 const path = require('path')
+const FormData = require('form-data')
 const { fromBuffer } = require('file-type')
 const { green, blueBright, redBright } = require('chalk')
 const { tmpdir } = require('os')
@@ -230,7 +232,7 @@ module.exports = class Function {
                })
             }
          } catch (e) {
-            console.log(e)
+            //console.log(e)
             resolve({
                status: false
             })
@@ -301,7 +303,7 @@ module.exports = class Function {
    reload = (file) => {
       fs.watchFile(file, () => {
          fs.unwatchFile(file)
-         console.log(redBright.bold('[ UPDATE ]'), blueBright(moment(new Date() * 1).format('DD/MM/YY HH:mm:ss')), green.bold('~ ' + path.basename(file)))
+         //console.log(redBright.bold('[ UPDATE ]'), blueBright(moment(new Date() * 1).format('DD/MM/YY HH:mm:ss')), green.bold('~ ' + path.basename(file)))
          delete require.cache[file]
          require(file)
       })

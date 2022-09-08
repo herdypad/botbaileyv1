@@ -7,7 +7,7 @@ global.max_upload = 250
 // Delay for spamming protection (Default : 3 seconds)
 global.cooldown = 3
 // User Limitation (Default : 10)
-global.limit = 10
+global.limit = 100
 // Time to be temporarily banned and others (Default : 30 minutes)
 global.timer = 1800000
 // Symbols that are excluded when adding a prefix (Don't change it)
@@ -17,12 +17,11 @@ global.blocks = ['91', '92', '212']
 // Put target jid to forward friends story
 global.forwards = '6285221100126@c.us'
 // Get neoxr apikey by registering at https://api.nxr.my.id
-global.Api = new (require('./neoxrApi'))('q7nMK1')
 // Get bid and key configuration for autoreply chat ai feature by registering at https://brainshop.ai
 global.chatai_bid = '164728'
 global.chatai_key = 'MKPsfkgXLZPGrWoH'
 // Footer text
-global.footer = 'ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ ɴᴇᴏxʀ ッ'
+global.footer = 'ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ indobot ッ'
 // Global status
 global.status = Object.freeze({
    wait: Func.texted('bold', 'Processed . . .'),

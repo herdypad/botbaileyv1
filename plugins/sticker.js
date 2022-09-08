@@ -21,7 +21,7 @@ exports.run = {
             } else if (/image/.test(type)) {
                return await client.sendSticker(m.chat, img, m, {
                   packname: 'No Bot Wa',
-                  author: 'neoxr'
+                  author: '6285158870125'
                })
             }
          } else {
@@ -55,7 +55,7 @@ exports.run = {
          await client.sendMessage(m.chat, { clear: response.key })
           
       } catch (e) {
-         console.log(e)
+         //console.log(e)
          return client.reply(m.chat, global.status.error, m)
       }
    },

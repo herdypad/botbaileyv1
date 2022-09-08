@@ -99,7 +99,6 @@ module.exports = async (client, m) => {
                   global.db.statistic[command].hitstat += 1
                   global.db.statistic[command].lasthit = new Date * 1
                   global.db.statistic[command].sender = m.sender.split`@` [0]
-                  
                }
             }
          }
@@ -181,9 +180,9 @@ module.exports = async (client, m) => {
             if (!m.isGroup && global.blocks.some(no => m.sender.startsWith(no))) return client.updateBlockStatus(m.sender, 'block')
             if (m.isGroup && !['exec'].includes(name) && groupSet.mute) continue
             if (setting.pluginDisable.includes(name)) continue
-            if (setting.self && !['chatAI', 'exec'].includes(name) && !isOwner && !m.fromMe) continue
-            if (!m.isGroup && ['chatAI'].includes(name) && body && Func.socmed(body)) continue
-            if (!m.isGroup && ['chatAI'].includes(name) && chats && new Date() * 1 - chats.lastchat < global.timer) continue
+            // if (setting.self && !['chatAI', 'exec'].includes(name) && !isOwner && !m.fromMe) continue
+            if (!m.isGroup && [''].includes(name) && body && Func.socmed(body)) continue
+            // if (!m.isGroup && ['chatAI'].includes(name) && chats && new Date() * 1 - chats.lastchat < global.timer) continue
             if (!['exec', 'restrict'].includes(name) && users && users.banned) continue
             if (!['anti_link', 'anti_tagall', 'anti_virtex', 'filter', 'exec'].includes(name) && users && (users.banned || new Date - users.banTemp < global.timer)) continue
             if (!['anti_link', 'anti_tagall', 'anti_virtex', 'filter', 'exec'].includes(name) && groupSet && groupSet.mute) continue
@@ -213,7 +212,7 @@ module.exports = async (client, m) => {
          }
       }
    } catch (e) {
-      console.log(e)
+      //console.log(e)
    }
 }
 

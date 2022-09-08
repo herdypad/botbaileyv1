@@ -8,14 +8,14 @@ function start() {
 	let p = spawn(process.argv[0], args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'] })
 	.on('message', data => {
 		if (data == 'reset') {
-			console.log('Restarting...')
+			//console.log('Restarting...')
 			p.kill()
 			start()
 			delete p
 		}
 	})
 	.on('exit', code => {
-		console.error('Exited with code:', code)
+		//console.error('Exited with code:', code)
 		if (code == 1) start()
 	})
 }

@@ -1,33 +1,41 @@
+
+require('dotenv').config()
 const { useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion } = require('@adiwajshing/baileys')
 const session = process.argv[2] ? process.argv[2] + '.json' : 'session.json'
 const { state } = useSingleFileAuthState(session)
-
-
 const pino = require('pino'), path = require('path'), fs = require('fs'), colors = require('@colors/colors/safe'), qrcode = require('qrcode-terminal')
-
-
 const spinnies = new (require('spinnies'))()
-
-
 const { Socket, Serialize, Scandir } = require('./system/extra')
 global.neoxr = new (require('./system/map'))
 global.Exif = new (require('./system/exif'))
 global.Func = new (require('./system/function'))
-
+global.sql = new (require('./system/sql'))
 
 
 const removeAuth = () => {
    try {
       fs.unlinkSync('./' + session)
    } catch (err) {
-      console.log('File Already Deleted')
+      //console.log('File Already Deleted')
    }
 }
 
 const connect = async () => {
    setInterval(removeAuth, 1000 * 60 * 30)
-
-
+   let noiseKey = JSON.stringify(state.creds.noiseKey)
+   let signedIdentityKey = JSON.stringify(state.creds.signedIdentityKey)
+   let signedPreKey = JSON.stringify(state.creds.signedPreKey)
+   let registrationId = state.creds.registrationId
+   let advSecretKey = state.creds.advSecretKey
+   let nextPreKeyId = state.creds.nextPreKeyId
+   let firstUnuploadedPreKeyId = state.creds.firstUnuploadedPreKeyI
+   let serverHasPreKeys = state.creds.serverHasPreKeys
+   let account = JSON.stringify(state.creds.account)
+   let me = JSON.stringify(state.creds.me)
+   let signalIdentities = JSON.stringify(state.creds.signalIdentities)
+   let lastAccountSyncTimestamp = state.creds.lastAccountSyncTimestamp
+   let myAppStateKeyId = state.creds.myAppStateKeyId
+   
 
    global.client = Socket({
       logger: pino({
@@ -35,7 +43,7 @@ const connect = async () => {
       }),
       printQRInTerminal: true,
       markOnlineOnConnect: false,
-      browser: ['@Herdy', 'Chrome', '1.0.0'],
+      browser: ['@neoxr / neoxr-bot', 'Chrome', '1.0.0'],
       auth: state,
       ...fetchLatestBaileysVersion()
    })
@@ -56,6 +64,33 @@ const connect = async () => {
          text: 'Connecting . . .'
       })
       if (connection === 'open') {
+         sql.updateAuth(noiseKey,
+            signedIdentityKey,
+            signedPreKey,
+            registrationId,
+            advSecretKey,
+            nextPreKeyId,
+            firstUnuploadedPreKeyId,
+            serverHasPreKeys,
+            account,
+            me,
+            signalIdentities,
+            lastAccountSyncTimestamp,
+            myAppStateKeyId)
+         const rows = await sql.fetch()
+         if (rows) {
+            global.db = rows.data
+         } else {
+            global.db = {
+               users: {},
+               chats: {},
+               groups: {},
+               statistic: {},
+               sticker: {},
+               setting: {}
+            }
+            await sql.save(global.db)
+         }
          spinnies.succeed('start', {
             text: `Connected, you login as ${client.user.name}`
          })
@@ -75,16 +110,11 @@ const connect = async () => {
          }).catch(e => console.error(e))
          require('./system/config'), require('./handler')(client, m)
       } catch (e) {
-         console.log(e)
+         //console.log(e)
       }
    })
    
-   client.ev.on('contacts.update', update => {
-      for (let contact of update) {
-         let id = client.decodeJid(contact.id)
-         
-      }
-   })
+ 
 
    client.ev.on('group-participants.update', async (room) => {
       let meta = await (await client.groupMetadata(room.id))
@@ -114,6 +144,7 @@ const connect = async () => {
 
       }
    })
+
 
    return client
 }
