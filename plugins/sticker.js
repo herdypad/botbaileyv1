@@ -1,5 +1,5 @@
 exports.run = {
-   usage: ['s', 'sk', '​​​​.', '​​​​​​,'],
+   usage: ['s', 'sk', 'sticker', 'stickergif'],
    async: async (m, {
       client,
       text,
