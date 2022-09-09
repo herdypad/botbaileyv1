@@ -4,7 +4,7 @@ exports.run = {
       client,
       isPrefix
    }) => {
-      client.reply(m.chat, `Hai ${m.pushName}  \nMenu Bot Baru ini\n #sticker\n#stickergif`, m)
+      client.reply(m.chat, `Hai ${m.pushName}  \nMenu Bot Baru ini sticker \n\nsilakan kirim foto atau video dengan deskripsi\n#sticker\n#stickergif`, m)
    },
    error: false
 }
