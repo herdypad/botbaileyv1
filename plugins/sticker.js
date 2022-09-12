@@ -1,6 +1,6 @@
 exports.run = {
 
-   usage: ['s', 'sitker', 'stikergif', '͏͏͏͏͏͏͏͏͏͏', '͏͏͏͏͏͏͏͏͏'],
+   usage: ['s', 'stiker', 'stikergif', '͏͏͏͏͏͏͏͏͏͏', '͏͏͏͏͏͏͏͏͏','sticer', 'stickergif'],
 
    async: async (m, {
       client,

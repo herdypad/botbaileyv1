@@ -82,7 +82,7 @@ module.exports = async (client, m) => {
             global.db.chats[m.chat].lastseen = new Date() * 1
          }
          if (!commands.includes(command) && matcher.length > 0 && !setting.self) {
-            if (!m.isGroup || (m.isGroup && !groupSet.mute)) return client.reply(m.chat, `🚩 Command you are using is wrong, try the following recommendations :\n\n${matcher.map(v => '➠ *' + isPrefix + v.string + '* (' + v.accuracy + '%)').join('\n')}`, m)
+            if (!m.isGroup || (m.isGroup && !groupSet.mute)) return client.reply(m.chat, `🚩 Perintah yg kamu masukan salah Coba Pakai ini :\n\n${matcher.map(v => '➠ *' + isPrefix + v.string + '* (' + v.accuracy + '%)').join('\n')}`, m)
          }
          if (setting.error.includes(command) && !setting.self) return client.reply(m.chat, Func.texted('bold', `🚩 Command _${isPrefix + command}_ disabled.`), m)
          if (commands.includes(command)) {
