@@ -25,6 +25,7 @@ mkdir ffmpeg
 
 cd ffmpeg
 wget https://www.johnvansickle.com/ffmpeg/old-releases/ffmpeg-4.2.1-amd64-static.tar.xz
+
 tar xvf ffmpeg-4.2.1-amd64-static.tar.xz
 mv ffmpeg-4.2.1-amd64-static/ffmpeg .
 
