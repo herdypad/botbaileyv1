@@ -4,9 +4,13 @@ exports.run = {
       client,
       isPrefix
    }) => {
-      client.reply(m.chat, `Hai ${m.pushName}  \nMenu Bot Baru ini sticker \n\nsilakan kirim foto atau video dengan deskripsi\n#sticker\n#stickergif`, m)
+
+      client.reply(m.chat, `Hai ${m.pushName}  \nMenu Bot baru ini \n1. stiker \n2. stikergif \n\nkirim Foto Atau Video dengan Caption diatas yah \n\nMenu Lainya Nyusul Yah`, m)
+
    },
    error: false
 }
 
-//hanya bisa di Akses di \nhttps://play.google.com/store/apps/details?id=com.indobot.botwastikerapp
+
+//  bisa di Akses di \nhttps://play.google.com/store/apps/details?id=com.indobot.botwastikerapp
+
