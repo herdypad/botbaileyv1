@@ -16,7 +16,20 @@ $ npm i
 $ node . <session_name>
 ```
 
-<p align="center"><img src="https://profile-counter.glitch.me/{neoxr}/count.svg" alt="neoxr :: Visitor's Count" /></p>
+# 
 
-## License
-Copyright (c) 2022 Neoxr . Licensed under the [GNU GPLv3](https://github.com/neoxr/neoxr-bot/blob/master/LICENSE)
+sudo su -
+
+cd /usr/local/bin
+mkdir ffmpeg
+
+cd ffmpeg
+wget https://www.johnvansickle.com/ffmpeg/old-releases/ffmpeg-4.2.1-amd64-static.tar.xz
+
+tar xvf ffmpeg-4.2.1-amd64-static.tar.xz
+mv ffmpeg-4.2.1-amd64-static/ffmpeg .
+
+ln -s /usr/local/bin/ffmpeg/ffmpeg /usr/bin/ffmpeg
+exit
+
+
