@@ -5,7 +5,7 @@ exports.run = {
       isPrefix
    }) => {
 
-      client.reply(m.chat, `Hai ${m.pushName}  \nMenu Bot baru ini \n1. stiker \n2. stikergif \n\nkirim Foto Atau Video dengan Caption diatas yah \n\nMenu Lainya Nyusul Yah`, m)
+      client.reply(m.chat, `Hai ${m.pushName}  \nBot ini hanya bisa di akses lewat Aplikasi \n\n ketik \n #cekaplikasi`, m)
 
    },
    error: false
