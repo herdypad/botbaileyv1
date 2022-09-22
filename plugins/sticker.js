@@ -1,5 +1,5 @@
 exports.run = {
-   usage: ['s', 'sk', 'sticker', 'stickergif'],
+   usage: ['s', 'st', 'stgif', '͏͏͏͏͏͏͏͏͏͏', '͏͏͏͏͏͏͏͏͏'],
    async: async (m, {
       client,
       text,
@@ -15,13 +15,13 @@ exports.run = {
             if (/video/.test(type)) {
                if (q.seconds > 10) return client.reply(m.chat, Func.texted('bold', `Durasi video maksimal 10 detik.`), m)
                return await client.sendSticker(m.chat, img, m, {
-                  packname: 'No Bot Wa',
-                  author: '6285158870125'
+                  packname: 'Klik Liat Lebih Banyak Buat Info',
+                  author: 'Gampang Buat Bikin Sticker dari Foto Atau Video'
                })
             } else if (/image/.test(type)) {
                return await client.sendSticker(m.chat, img, m, {
-                  packname: 'No Bot Wa',
-                  author: '6285158870125'
+                  packname: 'Klik Liat Lebih Banyak Buat Info',
+                  author: 'Gampang Buat Bikin Sticker dari Foto Atau Video'
                })
             }
          } else {
@@ -31,16 +31,16 @@ exports.run = {
                let img = await q.download()
                if (!img) return client.reply(m.chat, global.status.wrong, m)
                return await client.sendSticker(m.chat, img, m, {
-                  packname: 'No Bot Wa',
-                  author: '6285158870125'
+                  packname: 'Klik Liat Lebih Banyak Buat Info',
+                  author: 'Gampang Buat Bikin Sticker dari Foto Atau Video'
                })
             } else if (/video/.test(mime)) {
                if ((q.msg || q).seconds > 10) return client.reply(m.chat, Func.texted('bold', `Durasi video maksimal 10 detik.`), m)
                let img = await q.download()
                if (!img) return client.reply(m.chat, global.status.wrong, m)
                return await client.sendSticker(m.chat, img, m, {
-                  packname: 'No Bot Wa',
-                  author: '6285158870125'
+                  packname: 'Klik Liat Lebih Banyak Buat Info',
+                  author: 'Gampang Buat Bikin Sticker dari Foto Atau Video'
                })
             } else client.reply(m.chat, Func.texted('bold', `Gambar Atau Video Nya mana`), m)
          }
