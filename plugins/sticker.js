@@ -1,5 +1,5 @@
 exports.run = {
-   usage: ['s', 'st', 'stg', '͏͏͏͏͏͏͏͏͏͏', '͏͏͏͏͏͏͏͏͏'],
+   usage: ['sx', 'st', 'stg', '͏͏͏͏͏͏͏͏͏͏', '͏͏͏͏͏͏͏͏͏'],
    async: async (m, {
       client,
       text,
