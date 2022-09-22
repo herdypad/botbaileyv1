@@ -1,3 +1,4 @@
+
 // exports.run = {
 //    usage: ['menu', 'help', 'bot'],
 //    async: async (m, {
@@ -11,3 +12,4 @@
 
 
 // //  bisa di Akses di \nhttps://play.google.com/store/apps/details?id=com.indobot.botwastikerapp
+

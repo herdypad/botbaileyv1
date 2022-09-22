@@ -1,5 +1,5 @@
 // Owner number
-global.owner = '6285221100126'
+global.owner = '6282217417425'
 // Owner name
 global.owner_name = 'Wildan Izzudin'
 // Maximum upload file size limit (Default : 250 MB)
