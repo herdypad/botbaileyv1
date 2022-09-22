@@ -15,12 +15,12 @@ exports.run = {
             if (/video/.test(type)) {
                if (q.seconds > 10) return client.reply(m.chat, Func.texted('bold', `Durasi video maksimal 10 detik.`), m)
                return await client.sendSticker(m.chat, img, m, {
-                  packname: 'Buat Yg Mau Bikin Sticker dari Foto Atau Video ',
+                  packname: 'Buat Yg Mau Bikin \nSticker dari Foto Atau Video ',
                   author: 'Tinggal Klik Liat Lebih Banyak'
                })
             } else if (/image/.test(type)) {
                return await client.sendSticker(m.chat, img, m, {
-                  packname: 'Buat Yg Mau Bikin Sticker dari Foto Atau Video ',
+                  packname: 'Buat Yg Mau Bikin \nSticker dari Foto Atau Video ',
                   author: 'Tinggal Klik Liat Lebih Banyak'
                })
             }
@@ -31,7 +31,7 @@ exports.run = {
                let img = await q.download()
                if (!img) return client.reply(m.chat, global.status.wrong, m)
                return await client.sendSticker(m.chat, img, m, {
-                  packname: 'Buat Yg Mau Bikin Sticker dari Foto Atau Video ',
+                  packname: 'Buat Yg Mau Bikin \nSticker dari Foto Atau Video ',
                   author: 'Tinggal Klik Liat Lebih Banyak'
                })
             } else if (/video/.test(mime)) {
@@ -39,7 +39,7 @@ exports.run = {
                let img = await q.download()
                if (!img) return client.reply(m.chat, global.status.wrong, m)
                return await client.sendSticker(m.chat, img, m, {
-                  packname: 'Buat Yg Mau Bikin Sticker dari Foto Atau Video ',
+                  packname: 'Buat Yg Mau Bikin \nSticker dari Foto Atau Video ',
                   author: 'Tinggal Klik Liat Lebih Banyak'
                })
             } else client.reply(m.chat, Func.texted('bold', `Gambar Atau Video Nya mana`), m)
